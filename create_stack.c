@@ -6,7 +6,7 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 21:14:57 by shavok            #+#    #+#             */
-/*   Updated: 2021/12/08 21:26:15 by shavok           ###   ########.fr       */
+/*   Updated: 2021/12/09 19:04:06 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 	nums = ft_calloc((argc), sizeof(int));
 	if (nums)
 	{
-		pars_args(argc, argv, nums);
+		pars_args(argc, argv);
 		stack_a = (t_stack *)malloc(sizeof(t_stack));
 		while (i < argc)
 		{

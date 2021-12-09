@@ -6,27 +6,27 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 16:59:48 by shavok            #+#    #+#             */
-/*   Updated: 2021/12/08 23:02:45 by shavok           ###   ########.fr       */
+/*   Updated: 2021/12/09 19:23:55 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_nodadd_front(t_stack **lst, t_stack *new)
+void	stack_nodadd_front(t_stack **stck, t_stack *new)
 
 {
-	t_stack *tmp_f;
-	t_stack *tmp_l;
+	t_stack *tmp_fst;
+	t_stack *tmp_lst;
 
-	if (*lst && new)
+	if (*stck && new)
 	{
-		tmp_f = *lst;
-		tmp_l = tmp_f->prev;
+		tmp_fst = *stck;
+		tmp_lst = tmp_fst->prev;
 
-		new->next = tmp_f;
-		new->prev = tmp_l;
-		tmp_f->prev = new;
-		tmp_l->next = new;
-		*lst = new;
+		new->next = tmp_fst;
+		new->prev = tmp_lst;
+		tmp_fst->prev = new;
+		tmp_lst->next = new;
+		*stck = new;
 	}
 }

@@ -6,31 +6,23 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 16:24:15 by shavok            #+#    #+#             */
-/*   Updated: 2021/12/09 20:47:07 by shavok           ###   ########.fr       */
+/*   Updated: 2021/12/08 21:24:54 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *pars_args(int argc, char **argv)
+void *pars_args(int argc, char **argv, int *nums)
 
 {
 	int		i;
-	t_stack *tmp;
-	t_stack *stack_a;
 	
 	i = 1;
-	stack_a = (t_stack *)0;
 	while (i < argc)
 	{
 		while (argv[i])
 		{
-			if (ft_atoi(argv[i]))
-			{
-				tmp = stack_new_nod(ft_atoi(argv[i]));
-				stack_nodadd_back(&stack_a, tmp);
-			}
-			else
+			if (!(nums[i - 1] = ft_atoi(argv[i])))
 			{
 				write (1, "Error\n", 6);
 				return (NULL);
@@ -38,14 +30,26 @@ t_stack *pars_args(int argc, char **argv)
 			i++;
 		}
 	}
-	return (stack_a);
+	return (nums);
 }
 
 
-// int main(int argc, char **argv)
-// {
-// 	t_stack	*stack_a;
-
-// 	stack_a = pars_args(argc, argv);
-// 	return (0);
-// }
+int main(int argc, char **argv)
+{
+	int 	*nums;
+	int		i;
+	// t_stack	stack_a;
+	
+	nums = ft_calloc((argc), sizeof(int));
+	if (nums)
+	{
+		pars_args(argc, argv, nums);
+		i = 0;
+		while (nums[i])
+		{
+			printf("%d\n", nums[i]);
+			i++;
+		}
+	}
+	return (0);
+}

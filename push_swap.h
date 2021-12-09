@@ -6,7 +6,7 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 14:26:52 by shavok            #+#    #+#             */
-/*   Updated: 2021/12/08 22:59:40 by shavok           ###   ########.fr       */
+/*   Updated: 2021/12/09 21:51:34 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,13 @@ typedef struct s_stack
 }	t_stack;
 
 t_stack	*stack_new_nod(int numbr);
-void	*pars_args(int argc, char **argv, int *nums);
-void	stack_nodadd_front(t_stack **lst, t_stack *new);
-void	stack_nodadd_back(t_stack **lst, t_stack *new);
+t_stack	*pars_args(int argc, char **argv);
+
+void	stack_nodadd_front(t_stack **stck, t_stack *new);
+void	stack_nodadd_back(t_stack **stck, t_stack *new);
+
+void	ops_swap(t_stack **stck, int f);
+void	ops_swap_ab(t_stack **stck_a, t_stack **stck_b);
+void	ops_push(t_stack **stck1, t_stack **stck2, int f);
+
 #endif
