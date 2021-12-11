@@ -6,36 +6,40 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:52:36 by shavok            #+#    #+#             */
-/*   Updated: 2021/12/10 17:19:27 by shavok           ###   ########.fr       */
+/*   Updated: 2021/12/11 17:38:32 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ops_push_a(t_stack **stck_a, t_stack **stck_b)
-
+void	stck_relink_nods(t_stack **stck)
 {
 	t_stack	*tmp_scnd;
 	t_stack *tmp_lst;
+
+	tmp_scnd = (*stck)->next;
+	tmp_lst = (*stck)->prev;
+	tmp_lst->next = tmp_scnd;
+	tmp_scnd->prev = tmp_lst;
+	*stck = tmp_scnd;
+}
+
+void	ops_push_a(t_stack **stck_a, t_stack **stck_b)
+
+{
 	t_stack *move;
 	
 	if (*stck_b)
 	{
-		tmp_scnd = (*stck_b)->next;
-		tmp_lst = (*stck_b)->prev;
 		if (!(*stck_a))
 		{
 			*stck_a = stack_new_nod((*stck_b)->num);
-			tmp_lst->next = tmp_scnd;
-			tmp_scnd->prev = tmp_lst;
-			*stck_b = tmp_scnd;
+			stck_relink_nods(stck_b);
 		}
 		else if (!((*stck_b)->next == *stck_b) && !((*stck_b)->prev == *stck_b))
 		{
 			move = *stck_b;
-			tmp_lst->next = tmp_scnd;
-			tmp_scnd->prev = tmp_lst;
-			*stck_b = tmp_scnd;
+			stck_relink_nods(stck_b);
 			stack_nodadd_front(stck_a, move);
 		}
 		else if ((*stck_b)->next == *stck_b && (*stck_b)->prev == *stck_b)

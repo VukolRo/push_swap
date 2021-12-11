@@ -6,7 +6,7 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 14:26:52 by shavok            #+#    #+#             */
-/*   Updated: 2021/12/10 17:37:39 by shavok           ###   ########.fr       */
+/*   Updated: 2021/12/11 21:43:28 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,17 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
+typedef struct s_num_lst
+{
+	int					num;
+	struct s_num_lst	*next;
+}	t_num_lst;
+
+t_stack *push_swap(int ac, char **av);
+
+
 t_stack	*pars_args(int argc, char **argv);
+int	check_if_srtd(t_stack *stck, int count);
 
 t_stack	*stack_new_nod(int numbr);
 void	stack_nodadd_front(t_stack **stck, t_stack *new);
@@ -34,7 +44,8 @@ void	ops_swap(t_stack **stck, int f);
 void	ops_swap_ab(t_stack **stck_a, t_stack **stck_b);
 void	ops_push_a(t_stack **stck_a, t_stack **stck_b);
 void	ops_push_b(t_stack **stck_a, t_stack **stck_b);
-
-
-
+void	ops_rotate(t_stack **stck, int f);
+void	ops_rotate_ab(t_stack **stck_a, t_stack **stck_b);
+void	ops_rev_rotate(t_stack **stck, int f);
+void	ops_rev_rotate_ab(t_stack **stck_a, t_stack **stck_b);
 #endif

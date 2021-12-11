@@ -6,7 +6,7 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 22:18:37 by shavok            #+#    #+#             */
-/*   Updated: 2021/12/09 20:37:10 by shavok           ###   ########.fr       */
+/*   Updated: 2021/12/11 21:25:28 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	stack_nodadd_back(t_stack **stck, t_stack *new)
 			tmp_lst->next = new;
 			new->prev = tmp_lst;
 			(*stck)->prev = new;
-			// printf("%d ", (*stck)->num);
 		}
 	}
 }

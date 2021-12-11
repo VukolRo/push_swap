@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack.c                                     :+:      :+:    :+:   */
+/*   ops_rotate_ab.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 21:14:57 by shavok            #+#    #+#             */
-/*   Updated: 2021/12/09 19:04:06 by shavok           ###   ########.fr       */
+/*   Created: 2021/12/06 15:53:11 by shavok            #+#    #+#             */
+/*   Updated: 2021/12/11 18:02:29 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+void	ops_rotate_ab(t_stack **stck_a, t_stack **stck_b)
+
 {
-	int 	*nums;
-	int		i;
-	t_stack	*stack_a;
-	
-	i = 0;
-	nums = ft_calloc((argc), sizeof(int));
-	if (nums)
+	if (*stck_a && *stck_b)
 	{
-		pars_args(argc, argv);
-		stack_a = (t_stack *)malloc(sizeof(t_stack));
-		while (i < argc)
-		{
-			stack_new_nod(nums[i]);
-			
-		}
+		*stck_a = (*stck_a)->next;
+		*stck_b = (*stck_b)->next;
+		write(1, "rr\n", 3);
 	}
-	return (0);
+	else if (!(*stck_a))
+	{
+		*stck_b = (*stck_b)->next;
+		write(1, "rb\n", 3);
+	}
+	else if (!(*stck_b))
+	{
+		*stck_a = (*stck_a)->next;
+		write(1, "ra\n", 3);
+	}
 }

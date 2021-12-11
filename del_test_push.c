@@ -13,28 +13,28 @@ int main()
 
 	// new = stack_new_nod(30);
 	// stack_nodadd_back(&stck, new);
-	// i = 0;
-	// while (i < 5)
-	// {
-	// 	new = stack_new_nod(i);
-	// 	stack_nodadd_back(&stck, new);
-	// 	i++;
-	// }
+	i = 0;
+	while (i < 5)
+	{
+		new = stack_new_nod(i);
+		stack_nodadd_back(&stck, new);
+		i++;
+	}
 
 	// new = stack_new_nod(30);
 	// stack_nodadd_back(&stck1, new);
-	i = 5;
-	while (i > 0)
-	{
-		new = stack_new_nod(i);
-		stack_nodadd_back(&stck1, new);
-		i--;
-	}
-	ops_push_a(&stck, &stck1);
-	// ops_push_b(&stck, &stck1);
+	// i = 5;
+	// while (i > 0)
+	// {
+	// 	new = stack_new_nod(i);
+	// 	stack_nodadd_back(&stck1, new);
+	// 	i--;
+	// }
+	// ops_push_a(&stck, &stck1);
+	ops_push_b(&stck, &stck1);
 	i = 0;
 	printf("stack A\n");
-	while (i < 3)
+	while (i < 6)
 	{
 		printf("%d\n", stck->num);
 		stck = stck->next;
@@ -67,5 +67,5 @@ int main()
 	// 	stck = stck->next;
 	// 	i++;
 	// }
-	return (0);
+	// return (0);
 }
