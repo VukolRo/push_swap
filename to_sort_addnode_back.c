@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_new_nod.c                                    :+:      :+:    :+:   */
+/*   to_sort_addnode_back.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/06 16:56:52 by shavok            #+#    #+#             */
-/*   Updated: 2021/12/09 20:37:16 by shavok           ###   ########.fr       */
+/*   Created: 2022/02/04 21:15:45 by shavok            #+#    #+#             */
+/*   Updated: 2022/02/08 20:56:12 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*stack_new_nod(int numbr)
+t_to_sort	*to_sort_addnode_back(t_to_sort *to_sort, t_to_sort *new)
 
 {
-	t_stack	*e1;
+	t_to_sort *tmp;
 
-	e1 = (t_stack *)0;
-	e1 = (t_stack *)malloc(sizeof(t_stack));
-	if (e1)
+	tmp = (t_to_sort *)0; 
+	if (new)
 	{
-		e1->num = numbr;
-		e1->next = e1;
-		e1->prev = e1;
-		// printf("%d ", e1->num);
+
+		if (to_sort == NULL)
+		{
+			to_sort = new;
+		}
+		else
+		{
+			tmp = to_sort;
+			while (tmp->next)
+			{
+				tmp = tmp->next;
+			}
+			tmp->next = new;
+		}
 	}
-	return (e1);
+	return (to_sort);
 }

@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stack_new_node.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/11 21:20:42 by shavok            #+#    #+#             */
-/*   Updated: 2022/02/09 11:38:05 by shavok           ###   ########.fr       */
+/*   Created: 2021/12/06 16:56:52 by shavok            #+#    #+#             */
+/*   Updated: 2022/02/09 00:03:49 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-
-int	push_swap(int ac, char **av)
+t_stack	*stack_new_node(unsigned int index, unsigned int quarter)
 
 {
-	t_stack	**stack_a;
-	t_stack	**stack_b;
+	t_stack	*e1;
 
-	stack_a = parsing_args(ac, av);
-	stack_b = (t_stack **)0;
-	
-	return (0);
+	e1 = (t_stack *)0;
+	e1 = (t_stack *)malloc(sizeof(t_stack));
+	if (e1)
+	{
+		e1->index = index;
+		e1->quarter = quarter;
+		e1->next = e1;
+		e1->prev = e1;
+	}
+	return (e1);
 }

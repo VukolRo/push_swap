@@ -6,7 +6,7 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:52:36 by shavok            #+#    #+#             */
-/*   Updated: 2021/12/11 17:38:14 by shavok           ###   ########.fr       */
+/*   Updated: 2022/02/09 00:55:35 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ops_push_b(t_stack **stck_a, t_stack **stck_b)
 	{
 		if (!(*stck_b))
 		{
-			*stck_b = stack_new_nod((*stck_a)->num);
+			*stck_b = stack_new_nod((*stck_a)->index, (*stck_a)->quarter);
 			stck_relink_nods(stck_a);
 		}
 		else if (!((*stck_a)->next == *stck_a) && !((*stck_a)->prev == *stck_a))

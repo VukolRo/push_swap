@@ -6,7 +6,7 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:51:39 by shavok            #+#    #+#             */
-/*   Updated: 2021/12/09 21:53:37 by shavok           ###   ########.fr       */
+/*   Updated: 2022/02/09 00:59:50 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ void	ops_swap_ab(t_stack **stck_a, t_stack **stck_b)
 		tmp_b = (*stck_b)->next;
 		if (!(tmp_a == (*stck_a)) && !(tmp_b == (*stck_b)))
 		{
-			tmp = ((*stck_a)->next)->num;
-			((*stck_a)->next)->num = (*stck_a)->num;
-			(*stck_a)->num = tmp;
-			tmp = ((*stck_b)->next)->num;
-			((*stck_b)->next)->num = (*stck_b)->num;
-			(*stck_b)->num = tmp;
+			tmp = ((*stck_a)->next)->index;
+			((*stck_a)->next)->index = (*stck_a)->index;
+			(*stck_a)->index = tmp;
+			tmp = ((*stck_b)->next)->index;
+			((*stck_b)->next)->index = (*stck_b)->index;
+			(*stck_b)->index = tmp;
 			write(1, "ss\n", 3);
 		}
 		else if (!(tmp_a == (*stck_a)) && (tmp_b == (*stck_b)))
