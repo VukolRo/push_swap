@@ -5,39 +5,72 @@
 #                                                     +:+ +:+         +:+      #
 #    By: shavok <shavok@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/12/06 12:27:56 by shavok            #+#    #+#              #
-#    Updated: 2021/12/06 14:27:10 by shavok           ###   ########.fr        #
+#    Created: 2022/02/11 14:06:30 by shavok            #+#    #+#              #
+#    Updated: 2022/02/11 22:37:23 by shavok           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
 
-SRCS	=	
+NAME_B	=	checker
+
+SRCS	=	push_swap.c		parsing_args.c		ft_atoi_long.c \
+			fill_stack.c	node_add.c			ops_rotation.c \
+			easy_sort.c		ops_push.c			ops_swap.c
+
+# SRCS_B	=	cheker.c	
+
+OBJ		=	$(SRCS:%.c=%.o)
+
+# OBJ_B	=	$(SRCS_B:%.c=%.o)
+
+LIB		=	libft/libft.a
 
 HEADER	=	push_swap.h
-OBJ		=	$(SRCS:%.c=%.o)
-OBJ_B	=	$(SRCS_B:%.c=%.o)
 
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -I$(HEADER)
 
-.PHONY	:	all clean fclean re bonus
+FLAGS	=	-Wall -Wextra -Werror
 
-all		:	$(NAME)	
+RM		= rm -rf
 
-$(NAME)	:	$(OBJ)	$(HEADER)
-			ar rc $(NAME) $?
+#---------------------------------------------------------------------------------
+RED		=	\033[1;31m
+BLUE	=	\033[1;34m
+YELLOW	=	\033[1;33m
+WHITE	=	\033[1;32m
+PUPURE	=	\033[1;35m
+GRY		=	\033[1;30m
+TURQUOISE =	\033[36;1m
+END		=	\033[0m
+#---------------------------------------------------------------------------------
+.PHONY:		all	clean	fclean	re	bonus	libft
 
-%.o		:	%.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
+all:		libft $(NAME)
 
-bonus	:	
-	make OBJ='$(OBJ_B)' all
+libft:
+			@$(MAKE) -C libft/
 
-clean	:
-	@rm -f $(OBJ) $(OBJ_B)
+$(NAME):	$(OBJ)
+			$(CC) $(FLAGS) $(OBJ) $(LIB) -o $(NAME)
+			@echo "$(TURQUOISE)\n\t Complited $(NAME) \n$(END)"
 
-fclean	:	clean
-	@rm -f $(NAME)
+%.o:		%.c $(HEADER)
+			$(CC) $(FLAGS)  -c $< -o $@
 
-re		:	fclean all
+# bonus:		libft $(OBJ_B)
+# 			$(CC) $(FLAGS) $(OBJ_B) $(LIB) -o $(NAME_B)
+# 			@echo "$(TURQUOISE)\n\tComplited $(NAME_B) \n$(END)"
+
+clean:
+			@$(RM) $(OBJ) $(OBJ_B)
+			@$(MAKE) -C libft/ clean
+			@echo "$(BLUE)\n\tCleaning succeed\n$(END)"
+
+fclean:		clean
+			@$(MAKE) -C libft/ fclean
+			@$(RM) $(NAME) $(NAME_B)
+			@echo "$(BLUE)\tAll files were deleted\n$(END)"
+
+re:			fclean all
+			@echo "$(BLUE)\tRemake done\n$(END)"
