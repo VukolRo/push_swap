@@ -6,7 +6,7 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 14:36:08 by shavok            #+#    #+#             */
-/*   Updated: 2022/02/11 20:04:38 by shavok           ###   ########.fr       */
+/*   Updated: 2022/02/14 16:15:51 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	free_arr(char **arr, int flag)
 	while (arr[++i])
 		free(arr[i]);
 	free(arr);
-	if (flag == i)
+	if (flag == 1)
 	{
 		write(2, "Error\n", 6);
 		exit(EXIT_SUCCESS);

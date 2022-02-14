@@ -6,7 +6,7 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:04:25 by shavok            #+#    #+#             */
-/*   Updated: 2022/02/11 22:08:21 by shavok           ###   ########.fr       */
+/*   Updated: 2022/02/14 13:05:00 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ops_pa(t_all *all, unsigned int count)
 			all->stack_a->prev = all->stack_a;
 		}
 		all->stack_b = temp;
+		write(1, "pa\n", 3);
 	}
 }
 
@@ -63,6 +64,7 @@ void	ops_pb(t_all *all, unsigned int count)
 			all->stack_b->prev = all->stack_b;
 		}
 		all->stack_a = temp;
+		write(1, "pb\n", 3);
 	}
 }
 
@@ -77,7 +79,6 @@ void	ops_push(t_all *all, int flag, unsigned int count)
 			all->stack_b = NULL;
 		all->size_b--;
 		all->size_a++;
-		write(1, "pa\n", 3);
 	}
 	else if (flag == 1)
 	{
@@ -88,6 +89,5 @@ void	ops_push(t_all *all, int flag, unsigned int count)
 			all->stack_a = NULL;
 		all->size_a--;
 		all->size_b++;
-		write(1, "pb\n", 3);
 	}
 }

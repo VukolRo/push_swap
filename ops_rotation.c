@@ -6,7 +6,7 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 19:39:00 by shavok            #+#    #+#             */
-/*   Updated: 2022/02/11 19:54:28 by shavok           ###   ########.fr       */
+/*   Updated: 2022/02/14 14:27:51 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	ops_rev_rotate(t_all *all, int flag, unsigned int count)
 			write(1, "rrb\n", 4);
 		}
 	}
-
 }
 
 void	ops_rev_rotate_ab(t_all *all, unsigned int count)

@@ -6,7 +6,7 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:00:24 by shavok            #+#    #+#             */
-/*   Updated: 2022/02/11 22:08:28 by shavok           ###   ########.fr       */
+/*   Updated: 2022/02/14 16:19:30 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ void	sort_for_three(t_all *all)
 
 void	easy_sort(t_all *all)
 {
-	unsigned int	i;
+	long	i;
 
-	i = all->size_a;
-	while (i-- > 0)
+	i = (long)all->size_a;
+	while (i-- >= 0 && all->size_a > 3)
 	{
 		if (all->stack_a->index == 3 || all->stack_a->index == 4)
 			ops_push(all, 1, 1);

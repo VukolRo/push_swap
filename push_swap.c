@@ -6,7 +6,7 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 14:06:57 by shavok            #+#    #+#             */
-/*   Updated: 2022/02/11 21:53:29 by shavok           ###   ########.fr       */
+/*   Updated: 2022/02/14 13:11:52 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,11 @@ void	sorting(t_all *all)
 	if (all->size_a < 6)
 	{
 		easy_sort(all);
+		free_stack(all);
+	}
+	else if (all->size_a > 5)
+	{
+		hard_sort(all);
 		free_stack(all);
 	}
 }
