@@ -6,7 +6,7 @@
 #    By: shavok <shavok@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/11 14:06:30 by shavok            #+#    #+#              #
-#    Updated: 2022/02/14 14:09:32 by shavok           ###   ########.fr        #
+#    Updated: 2022/02/15 21:14:36 by shavok           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ NAME_B	=	checker
 
 SRCS	=	push_swap.c		parsing_args.c		ft_atoi_long.c \
 			fill_stack.c	node_add.c			hard_sort.c \
-			easy_sort.c		insertion_sort.c	ops_push.c \
-			ops_swap.c		ops_rotation.c
+			easy_sort.c		push_five_between.c	find_for_hard.c \
+			ops_push.c		ops_swap.c			ops_rotation.c
 
 # SRCS_B	=	cheker.c	
 

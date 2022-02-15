@@ -6,15 +6,20 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:00:24 by shavok            #+#    #+#             */
-/*   Updated: 2022/02/14 16:19:30 by shavok           ###   ########.fr       */
+/*   Updated: 2022/02/15 21:18:31 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	push_down(t_all *all)
+{
+	all->stack_a->flag = -1;
+	ops_rotate(all, 0, 1);
+}
+
 void	sort_for_three(t_all *all)
 {
-
 	if ((all->stack_a)->index == 2 && ((all->stack_a)->next)->index == 1)
 	{
 		ops_swap_a(all);
@@ -35,12 +40,9 @@ void	sort_for_three(t_all *all)
 
 void	easy_sort(t_all *all)
 {
-	long	i;
-
-	i = (long)all->size_a;
-	while (i-- >= 0 && all->size_a > 3)
+	while (all->size_a > 3)
 	{
-		if (all->stack_a->index == 3 || all->stack_a->index == 4)
+		if (all->stack_a->index > 2)
 			ops_push(all, 1, 1);
 		else
 			ops_rotate(all, 0, 1);
@@ -50,7 +52,10 @@ void	easy_sort(t_all *all)
 	{
 		if (all->stack_b->index == 4)
 			ops_swap_b(all);
-		ops_push(all, 0, 2);
+		ops_push(all, 0, 1);
+		ops_rotate(all, 0, 1);
+		ops_push(all, 0, 1);
+		ops_rotate(all, 0, 1);
 	}
 	else if (all->size_b == 1)
 		ops_push(all, 0, 1);

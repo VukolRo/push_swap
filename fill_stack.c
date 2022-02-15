@@ -6,7 +6,7 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 15:34:22 by shavok            #+#    #+#             */
-/*   Updated: 2022/02/14 13:51:29 by shavok           ###   ########.fr       */
+/*   Updated: 2022/02/15 20:49:08 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ void	create_struct(t_all *all, char **arr)
 	all->stack_b = NULL;
 	all->size_a = i;
 	all->size_b = 0;
-	all->max_sorted = 0;
+	all->min = 0;
+	all->median = 0;
+	all->max = 0;
 }
 
 void	bubble_sorting(int *sorted, unsigned int len)
@@ -66,7 +68,7 @@ void	fill_index(t_all *all, int *unsorted, int *sorted)
 		{
 			if (unsorted[i] == sorted[j])
 			{
-				node_add_back(&all->stack_a, node_new(j, find_quarter(j, (all->size_a))));
+				node_add_back(&all->stack_a, node_new(j));
 				j++;
 				break ;
 			}

@@ -6,7 +6,7 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 14:06:57 by shavok            #+#    #+#             */
-/*   Updated: 2022/02/14 13:11:52 by shavok           ###   ########.fr       */
+/*   Updated: 2022/02/15 16:56:59 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,22 @@ int	chech_if_sorted(t_all *all)
 	return (0);
 }
 
-// int	chech_if_full_sorted(t_all *all)
-// {
+int	chech_if_full_sorted(t_all *all)
+{
+	t_node			*temp;
+	unsigned int	i;
 
-// 	if check_if_sorted(all);
-// 	if ((all->stack_a)->index > ((all->stack_a)->next)->index)
-// 		return (1);
-	
-// 	return (0);
-// }
+	i = 0;
+	temp = all->stack_a;
+	while (i < (all->size_a) - 1)
+	{
+		if (temp->index > (temp->next)->index)
+			return (1);
+		i++;
+		temp = temp->next;
+	}
+	return (0);
+}
 
 void	sorting(t_all *all)
 {
@@ -81,23 +88,12 @@ void	sorting(t_all *all)
 int	main(int argc, char **argv)
 {
 	t_all	*all;
-	unsigned int	i;
 
-	i = 0;
 	all = (t_all *)0;
 	if (argc > 1)
 	{
 		all = stack_create(argv);
 		sorting(all);
 	}
-	// del 
-	printf("stack A: ");
-	while (i < all->size_a)
-	{
-		printf("%d ", all->stack_a->index);
-		i++;
-		all->stack_a = all->stack_a->next;
-	}
-	printf("\n");
 	return (0);
 }
