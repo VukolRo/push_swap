@@ -21,7 +21,7 @@ t_all	*stack_create(char **argv)
 	args_validating(arr);
 	all = fill_stack(arr);
 	free_arr(arr, 0);
-	return(all);
+	return (all);
 }
 
 int	chech_if_sorted(t_all *all)

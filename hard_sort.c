@@ -6,7 +6,7 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 13:12:46 by shavok            #+#    #+#             */
-/*   Updated: 2022/02/15 21:18:24 by shavok           ###   ########.fr       */
+/*   Updated: 2022/02/16 20:01:37 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	first_to_b(t_all *all)
 	i = all->size_a;
 	while (i-- > 0 && all->stack_a->flag != -1)
 	{
-		if (all->stack_a->index <= all->median && all->stack_a->index >= all->min)
+		if (all->stack_a->index <= all->median
+			&& all->stack_a->index >= all->min)
 		{
 			ops_push(all, 1, 1);
 			if (all->stack_b->index == all->min)
@@ -45,8 +46,7 @@ void	first_to_b(t_all *all)
 		{
 			if (all->size_b == all->max - all->median + 1)
 				break ;
-			else
-				ops_rotate(all, 0, 1);
+			ops_rotate(all, 0, 1);
 		}
 	}
 	sorted_to_a(all);
@@ -112,5 +112,4 @@ void	hard_sort(t_all *all)
 			next_to_b(all);
 		}
 	}
-
 }

@@ -30,7 +30,7 @@ void	free_arr(char **arr, int flag)
 void	free_stack(t_all *all)
 {
 	t_node	*temp;
-	
+
 	while (all->size_a--)
 	{
 		temp = all->stack_a;
@@ -100,7 +100,7 @@ char	**parsing_args(char **argv)
 
 	buff = ft_strdup(argv[1]);
 	i = 1;
-	while(argv[++i])
+	while (argv[++i])
 	{
 		temp = buff;
 		buff = ft_strjoin(buff, " ");

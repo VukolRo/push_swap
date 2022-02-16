@@ -96,9 +96,9 @@ void	ops_rev_rotate_ab(t_all *all, unsigned int count);
 void	ops_rotate_ab(t_all *all, unsigned int count);
 
 // ops_swap.c
-void ops_swap_a(t_all *all);
-void ops_swap_b(t_all *all);
-void ops_swap_ab(t_all *all);
+void	ops_swap_a(t_all *all);
+void	ops_swap_b(t_all *all);
+void	ops_swap_ab(t_all *all);
 
 // ops_push.c
 void	ops_push(t_all *all, int flag, unsigned int count);

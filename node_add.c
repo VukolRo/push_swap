@@ -23,7 +23,7 @@ t_node	*node_new(int index)
 	node->flag = 0;
 	node->next = node;
 	node->prev = node;
-	return(node);
+	return (node);
 }
 
 void	node_add_back(t_node **stack, t_node *new)

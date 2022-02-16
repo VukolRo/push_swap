@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-void ops_swap_a(t_all *all)
+void	ops_swap_a(t_all *all)
 {
 	unsigned int	temp;
-	
+
 	if (all->size_a > 1)
 	{
 		temp = all->stack_a->index;
@@ -25,7 +25,7 @@ void ops_swap_a(t_all *all)
 	}
 }
 
-void ops_swap_b(t_all *all)
+void	ops_swap_b(t_all *all)
 {
 	unsigned int	temp;
 
@@ -38,7 +38,7 @@ void ops_swap_b(t_all *all)
 	}
 }
 
-void ops_swap_ab(t_all *all)
+void	ops_swap_ab(t_all *all)
 {
 	unsigned int	temp;
 

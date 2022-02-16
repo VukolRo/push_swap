@@ -6,7 +6,7 @@
 /*   By: shavok <shavok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 15:34:22 by shavok            #+#    #+#             */
-/*   Updated: 2022/02/15 20:49:08 by shavok           ###   ########.fr       */
+/*   Updated: 2022/02/16 21:03:05 by shavok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ void	bubble_sorting(int *sorted, unsigned int len)
 {
 	unsigned int	i;
 	unsigned int	j;
-	int	temp;
-
+	int				temp;
 
 	i = 0;
+	temp = 0;
 	while (i < len)
 	{
 		j = 0;
@@ -80,9 +80,9 @@ void	fill_index(t_all *all, int *unsorted, int *sorted)
 
 void	find_index(t_all *all, char **arr)
 {
-	int	*unsorted;
-	int	*sorted;
 	unsigned int	i;
+	int				*unsorted;
+	int				*sorted;
 
 	i = 0;
 	unsorted = malloc(sizeof(int) * (all->size_a));
@@ -109,5 +109,5 @@ t_all	*fill_stack(char **arr)
 	all = malloc(sizeof(t_all));
 	create_struct(all, arr);
 	find_index(all, arr);
-	return(all);
+	return (all);
 }
